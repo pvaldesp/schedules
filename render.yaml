@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: harbor-sailings
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/status
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: MAERSK_CONSUMER_KEY
+        sync: false
+      - key: CMA_API_KEY
+        sync: false
+      - key: CMA_CLIENT_ID
+        sync: false
+      - key: CMA_CLIENT_SECRET
+        sync: false
+      - key: CMA_TOKEN_URL
+        sync: false
+      - key: CMA_ROUTING_URL
+        value: https://api-portal.cma-cgm.com
+      - key: CMA_ROUTING_PATH
+        sync: false
